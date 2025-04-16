@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Иванов Иван - Лабораторная 7</title>
+    <style>
+        #line {
+            height: 5px;
+            background-color: red;
+            position: relative;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Задание 1 -->
+<h3>1. Скрыть текст</h3>
+<div id="text">Этот текст нужно скрыть</div>
+<button onclick="document.getElementById('text').style.display='none'">Скрыть текст</button>
+
+<!-- Задание 2 -->
+<h3>2. Скрыть кнопку</h3>
+<button onclick="this.style.display='none'">Спрятать меня</button>
+
+<!-- Задание 3 -->
+<h3>3. Координаты мыши</h3>
+<div id="coords">Координаты появятся здесь</div>
+<script>
+    document.addEventListener('click', function(event) {
+        document.getElementById('coords').innerText =
+            "X: " + event.clientX + ", Y: " + event.clientY;
+    });
+</script>
+
+<!-- Задание 4 -->
+<h3>4. Alert по клику</h3>
+<script>
+    document.addEventListener('click', function() {
+        alert('Был щелчок!');
+    }, { once: true }); // только один раз
+</script>
+
+<!-- Задание 5 -->
+<h3>5. Изменение текста</h3>
+<input type="text" onchange="alert('Текст был изменен!!!')">
+
+<!-- Задание 6 -->
+<h3>6. Средняя зарплата</h3>
+<form id="salaryForm">
+    <label>Январь: <input type="number" value="10000"></label><br>
+    <label>Февраль: <input type="number" value="12000"></label><br>
+    <label>Март: <input type="number" value="9000"></label><br>
+    <label>Апрель: <input type="number" value="11000"></label><br>
+    <label>Май: <input type="number" value="13000"></label><br>
+    <label>Июнь: <input type="number" value="11500"></label><br><br>
+    <button type="button" onclick="calculateAverage()">Вычислить</button><br><br>
+    Средняя зарплата: <input type="text" id="average" readonly>
+</form>
+
+<script>
+    function calculateAverage() {
+        const inputs = document.querySelectorAll('#salaryForm input[type="number"]');
+        let sum = 0;
+        inputs.forEach(input => sum += Number(input.value));
+        let average = sum / inputs.length;
+        document.getElementById('average').value = average.toFixed(2);
+    }
+</script>
+
+<!-- Задание 7 -->
+<h3>7. Работа с линией</h3>
+<div id="line" style="width: 100px;"></div><br>
+<button onclick="resizeLine()">Увеличить ширину</button>
+<button onclick="moveLine()">Сдвинуть вправо</button>
+<button onclick="changeColor()">Изменить цвет</button>
+
+<script>
+    function resizeLine() {
+        document.getElementById('line').style.width = "300px";
+    }
+    function moveLine() {
+        document.getElementById('line').style.left = "100px";
+    }
+    function changeColor() {
+        document.getElementById('line').style.backgroundColor = "blue";
+    }
+</script>
+
+</body>
+</html>
