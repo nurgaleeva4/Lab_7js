@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Регистрация в Сервис</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="loader.css" />
+</head>
+<body>
+<header></header>
+
+<section id="loader">
+    <div id="loader-container">
+        <div id="loader-bar"></div>
+    </div>
+</section>
+
+<main id="page" class="invisible">
+
+    <!-- Шаг 0: Приветствие -->
+    <section id="frame_1">
+        <h2>Добро пожаловать в <span>Сервис</span>!</h2>
+        <small>Для продолжения нужно зарегистрироваться</small>
+        <button type="button" id="startRegistration">Регистрация</button>
+    </section>
+
+    <!-- Шаг 1 -->
+    <section id="frame_2" class="invisible">
+        <h2>Шаг 1. Персональные данные</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" required />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="country">Страна:</label>
+            <input type="text" id="country" required />
+        </div>
+
+        <div class="form-group">
+            <label for="address">Адрес:</label>
+            <input type="text" id="address" required />
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required />
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Повторите пароль:</label>
+                <input type="password" id="confirmPassword" required />
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button type="button" id="cancel1">Отмена</button>
+            <button type="button" id="next1">Далее</button>
+        </div>
+    </section>
+
+    <!-- Шаг 2 -->
+    <section id="frame_3" class="invisible">
+        <h2>Шаг 2. Телефонный номер</h2>
+        <p>Введите номер телефона. Мы пришлём код для подтверждения.</p>
+
+        <div class="form-group">
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" required />
+            <button type="button" id="sendCode">Отправить</button>
+        </div>
+
+        <div class="form-group" id="codeGroup" style="display: none;">
+            <label for="verificationCode">Код подтверждения:</label>
+            <input type="text" id="verificationCode" maxlength="4" placeholder="XXXX"/>
+            <button type="button" id="verifyCode">Проверить</button>
+        </div>
+
+        <div class="navigation-buttons">
+            <button type="button" id="back2">Назад</button>
+            <button type="button" id="next2" disabled>Далее</button>
+        </div>
+    </section>
+
+    <!-- Шаг 3 -->
+    <section id="frame_4" class="invisible">
+        <h2>Шаг 3. Метод оплаты</h2>
+        <p>Введите данные вашей карты.</p>
+
+        <div class="form-group">
+            <label for="cardNumber">Номер карты:</label>
+            <input type="text" id="cardNumber" placeholder="1111 2222 3333 4444" required />
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="expiryDate">Срок действия:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required />
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" maxlength="3" required />
+            </div>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">Я согласен с условиями</label>
+        </div>
+
+        <div class="navigation-buttons">
+            <button type="button" id="back3">Назад</button>
+            <button type="button" id="finish">Завершить</button>
+        </div>
+    </section>
+
+    <!-- Шаг 4 -->
+    <section id="frame_5" class="invisible">
+        <div id="finish-screen">
+            <h2>Поздравляем!</h2>
+            <p>Регистрация успешно завершена!</p>
+        </div>
+    </section>
+</main>
+
+<script src="loader.js"></script>
+<script src="register.js"></script>
+</body>
+</html>
